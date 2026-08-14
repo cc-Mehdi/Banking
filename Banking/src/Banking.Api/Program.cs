@@ -1,3 +1,4 @@
+using Banking.Infrastructure;
 
 namespace Banking.Api
 {
@@ -14,6 +15,8 @@ namespace Banking.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddInfrastructure(builder.Configuration);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -26,7 +29,6 @@ namespace Banking.Api
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
